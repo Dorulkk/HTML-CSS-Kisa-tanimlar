@@ -23,7 +23,7 @@ const log = message => {
 
 client.on("guildMemberAdd", member => {
   try {
-  let role = member.guild.roles.cache.find(role => role.name === 'Amele')
+  let role = member.guild.roles.cache.find(role => role.name === '◈・ Kayıtsız')
   member.roles.add(role);
 } catch(e) {
   console.log(e)
@@ -132,9 +132,11 @@ client.on('ready', () => {
 
 
 client.on('guildMemberAdd', member => {
-const girişçıkış = member.guild.channels.cache.find(channel => channel.name === '「-♡uj-geldi̇n');
+const girişçıkış = member.guild.channels.cache.find(channel => channel.name === 'hoşgelni̇wzke');
 girişçıkış.send(`${member} sunucumuza hoş geldin. Adını yazarak bize katılabilirsin.Tabi en önemlisi 7/D de isen.`);
 });
+client.on('message', message => { if (message.content.startsWith('sa')) { message.reply('Aleyküm Selam hg :people_hugging:'); } }); client.on('message', message => { if (message.content.startsWith('Sa')) { message.member.send('Aleyküm Selam hg :people_hugging:'); } }); client.on('message', message => { if (message.content.startsWith('sA')) { message.reply('Aleyküm Selam hg :people_hugging:'); } }); client.on('message', message => { if (message.content.startsWith('SA')) { message.reply('Aleyküm Selam hg :people_hugging:'); } });
+
 
 client.on('message', message => {
 if (message.content.toLowerCase() === 'sa') {
@@ -388,4 +390,22 @@ if(message.content.startsWith(prefix + "yardım müzik")){
       .setFooter(`Bu komut ${message.author.tag}tarafından yazılmıştır`)
 message.channel.send(embed_hhwid)
 }});
+client.on(`message`, message => {
+  if (message.content.startsWith('k!oylama')) {
+    const args = message .content.split(' ').slice(1)
+    const botmesajı = args.join(" ")
+     if (!message.member.hasPermission('0')) return message.reply('Bunu yapmassın dostum');
+     if (!botmesajı) return message.reply('Oylamanın ne olacağını yazmadınız.');
+     message.delete(message.author)
+     const embed = new Discord.MessageEmbed()
+    .setTitle('Oyun Platformu')
+     .setDescription(botmesajı)
+     .setFooter('@everyone')
+
+     message.channel.send({ embed: embed }).then( embedMessage => {
+       embedMessage.react("✔")
+       embedMessage.react("❌");
+     })
+   }
+ })
 client.login(ayarlar.token);
