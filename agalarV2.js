@@ -23,7 +23,7 @@ const log = message => {
 
 client.on("guildMemberAdd", member => {
   try {
-  let role = member.guild.roles.cache.find(role => role.name === '◈・ Kayıtsız')
+  let role = member.guild.roles.cache.find(role => role.name === 'Amele')
   member.roles.add(role);
 } catch(e) {
   console.log(e)
