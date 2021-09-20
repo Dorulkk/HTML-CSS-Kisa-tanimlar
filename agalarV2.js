@@ -132,11 +132,9 @@ client.on('ready', () => {
 
 
 client.on('guildMemberAdd', member => {
-const girişçıkış = member.guild.channels.cache.find(channel => channel.name === 'hoşgelni̇wzke');
+const girişçıkış = member.guild.channels.cache.find(channel => channel.name === '「-♡uj-geldi̇n');
 girişçıkış.send(`${member} sunucumuza hoş geldin. Adını yazarak bize katılabilirsin.Tabi en önemlisi 7/D de isen.`);
 });
-client.on('message', message => { if (message.content.startsWith('sa')) { message.reply('Aleyküm Selam hg :people_hugging:'); } }); client.on('message', message => { if (message.content.startsWith('Sa')) { message.member.send('Aleyküm Selam hg :people_hugging:'); } }); client.on('message', message => { if (message.content.startsWith('sA')) { message.reply('Aleyküm Selam hg :people_hugging:'); } }); client.on('message', message => { if (message.content.startsWith('SA')) { message.reply('Aleyküm Selam hg :people_hugging:'); } });
-
 
 client.on('message', message => {
 if (message.content.toLowerCase() === 'sa') {
