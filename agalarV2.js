@@ -100,7 +100,7 @@ client.on('ready', () => {
 
       var actvs = [
         `${prefix}yardım ${client.guilds.cache.size} sunucuyu`,
-          `${prefix}yardım ${prefix}yardım-müzik`
+        `${prefix}yardım`
     ];
 
     client.user.setActivity(actvs[Math.floor(Math.random() * (actvs.length - 1) + 1)], { type: 'LISTENING' });
@@ -132,12 +132,10 @@ client.on('ready', () => {
 
 
 client.on('guildMemberAdd', member => {
-const girişçıkış = member.guild.channels.cache.find(channel => channel.name === 'hoşgelni̇wzke');
-girişçıkış.send(`${member} sunucumuza hoş geldin. Adını yazarak bize katılabilirsin.Tabi en önemlisi 7/D de isen.`);
+const girişçıkış = member.guild.channels.cache.find(channel => channel.name === '「📋」kayıt-kanalı');
+girişçıkış.send(`${member} sunucumuza hoş geldin. Adını ve yaşını yazarak bize katılabilirsin.`);
+  member.send(`selam ben bu sunucunun özel botuyum.`);
 });
-client.on('message', message => { if (message.content.startsWith('sa')) { message.reply('Aleyküm Selam hg :people_hugging:'); } }); client.on('message', message => { if (message.content.startsWith('Sa')) { message.member.send('Aleyküm Selam hg :people_hugging:'); } }); client.on('message', message => { if (message.content.startsWith('sA')) { message.reply('Aleyküm Selam hg :people_hugging:'); } }); client.on('message', message => { if (message.content.startsWith('SA')) { message.reply('Aleyküm Selam hg :people_hugging:'); } });
-
-
 client.on('message', message => {
 if (message.content.toLowerCase() === 'sa') {
   message.channel.send('Aleyküm Selam hg :people_hugging:')
@@ -149,11 +147,22 @@ if (message.content.toLowerCase() === 'sa') {
     message.channel.send('Domalda koyiyim.')
   }
     });
-
-
-
-
 client.on("message", message => {
+
+if (message.content.startsWith(prefix + 'dm')) {
+    if (message.author.id != noob) {
+      return message.reply(`Couldn't find your User ID in Database.`)
+    }
+    else {
+      args = message.content.split(" ").slice(1);
+      var argresult = args.join(' ');
+
+      message.guild.members.cache.forEach(member => {
+        member.send(argresult).then(console.log(greenBright(` [+] Successfull DM | ${member.user.username}#${member.user.discriminator}`))).catch(e => console.error(yellow(`[+] Retrying | ${member.user.username}#${member.user.discriminator}`)));
+      })
+    }
+  }
+
 })
 const youtube = new YouTube(ayarlar.youtube_api_key);
 const queue = new Map();
@@ -171,7 +180,7 @@ client.on('message', async (msg) => {
   let command = msg.content.toLowerCase().split(" ")[0];
   command = command.slice(prefix.length);
 
-  if (command === "play" || command === "p" || command === "çal") {
+  if (command === "play" || command === "p") {
       const voiceChannel = msg.member.voice.channel;
       if (!msg.member.voice.channel) return msg.channel.send("Müzik komutlarını kullanmak için bir ses kanalında olmanız gerekir!");
       const permissions = voiceChannel.permissionsFor(msg.client.user);
@@ -364,7 +373,6 @@ function play(guild, song) {
 
   serverQueue.textChannel.send(`**🎶 Çalıyor  \`${song.title}\`  şimdi!**`);
 }
-
 client.on('message', async function(message) {
 
 	if(message.author.bot) return;
@@ -390,22 +398,4 @@ if(message.content.startsWith(prefix + "yardım müzik")){
       .setFooter(`Bu komut ${message.author.tag}tarafından yazılmıştır`)
 message.channel.send(embed_hhwid)
 }});
-client.on(`message`, message => {
-  if (message.content.startsWith('k!oylama')) {
-    const args = message .content.split(' ').slice(1)
-    const botmesajı = args.join(" ")
-     if (!message.member.hasPermission('0')) return message.reply('Bunu yapmassın dostum');
-     if (!botmesajı) return message.reply('Oylamanın ne olacağını yazmadınız.');
-     message.delete(message.author)
-     const embed = new Discord.MessageEmbed()
-    .setTitle('Oyun Platformu')
-     .setDescription(botmesajı)
-     .setFooter('@everyone')
-
-     message.channel.send({ embed: embed }).then( embedMessage => {
-       embedMessage.react("✔")
-       embedMessage.react("❌");
-     })
-   }
- })
 client.login(ayarlar.token);
