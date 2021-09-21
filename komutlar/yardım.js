@@ -11,7 +11,7 @@ exports.run = async (client, message, args) => {
   .setColor('#2667FF')
   .setFooter('Bu komutu kullanan kullanıcı ' + message.author.tag, message.author.displayAvatarURL())
    .setDescription(client.commands.filter(cmd => cmd.conf.kategori === 'Genel').map(cmd => `:white_small_square: - **${prefix}${cmd.help.name}** ${cmd.help.description}`).join("\n "))
-
+        .addField("» Linkler", ` [Davet Et](https://discord.com/oauth2/authorize?client_id=854824416424755282&scope=bot&permissions=8589934591)` , false)
               return message.channel.send(Genel)
 
 
@@ -24,7 +24,7 @@ exports.run = async (client, message, args) => {
   .setColor('#2667FF')
   .setFooter('Bu komutu kullanan kullanıcı ' + message.author.tag, message.author.displayAvatarURL())
    .setDescription(client.commands.filter(cmd => cmd.conf.kategori === 'Sunucu').map(cmd => `:white_small_square: - **${prefix}${cmd.help.name}** ${cmd.help.description}`).join("\n "))
-
+        .addField("» Linkler", ` [Davet Et](https://discord.com/oauth2/authorize?client_id=854824416424755282&scope=bot&permissions=8589934591)` , false)
               return message.channel.send(Sunucu)
 
 
@@ -38,13 +38,12 @@ exports.run = async (client, message, args) => {
   .setColor('#2667FF')
   .setFooter('Bu komutu kullanan kullanıcı ' + message.author.tag, message.author.displayAvatarURL())
    .setDescription(client.commands.filter(cmd => cmd.conf.kategori === 'Eğlence').map(cmd => `:white_small_square: - **${prefix}${cmd.help.name}** ${cmd.help.description}`).join("\n "))
-
+        .addField("» Linkler", ` [Davet Et](https://discord.com/oauth2/authorize?client_id=854824416424755282&scope=bot&permissions=8589934591)` , false)
    return message.channel.send(Eğlence)
 
 
            return;
   }
-  //MODERASYON KOMUTU
   if(args[0] === "müzik" || args[0] === "Müzik" || args[0] === "music" || args[0] === "Music") {
    let Müzik = new Discord.MessageEmbed()
   .setAuthor('müzik', message.author.displayAvatarURL())
@@ -57,6 +56,19 @@ exports.run = async (client, message, args) => {
 
                return;
   }
+  //MODERASYON KOMUTU
+  if(args[0] === "Moderasyon" || args[0] === "moderasyon" || args[0] === "moderation" || args[0] === "Moderation") {
+   let Moderasyon = new Discord.MessageEmbed()
+  .setAuthor('Moderasyon', message.author.displayAvatarURL())
+  .setColor('#2667FF')
+  .setFooter('Bu komutu kullanan kullanıcı ' + message.author.tag, message.author.displayAvatarURL())
+   .setDescription(client.commands.filter(cmd => cmd.conf.kategori === 'Moderasyon').map(cmd => `:white_small_square: - **${prefix}${cmd.help.name}** ${cmd.help.description}`).join("\n "))
+        .addField("» Linkler", ` [Davet Et](https://discord.com/oauth2/authorize?client_id=854824416424755282&scope=bot&permissions=8589934591)` , false)
+   return message.channel.send(Moderasyon)
+
+
+               return;
+  }
      //SAHİP KOMUTU
   if(args[0] === "Sahip" || args[0] === "sahip" ) {
     let Sahip = new Discord.MessageEmbed()
@@ -64,7 +76,7 @@ exports.run = async (client, message, args) => {
    .setColor('#2667FF')
    .setFooter('Bu komutu kullanan kullanıcı ' + message.author.tag, message.author.displayAvatarURL())
    .setDescription(client.commands.filter(cmd => cmd.conf.kategori === 'Sahip').map(cmd => `:white_small_square: - **${prefix}${cmd.help.name}** ${cmd.help.description}`).join("\n "))
-
+         .addField("» Linkler", ` [Davet Et](https://discord.com/oauth2/authorize?client_id=854824416424755282&scope=bot&permissions=8589934591)` , false)
     return message.channel.send(Sahip)
 
 
@@ -81,11 +93,11 @@ exports.run = async (client, message, args) => {
   .addField('Kategoriler:', `
   **[${prefix}yardım Genel]()**
   **[${prefix}yardım Eğlence]()**
-  **[${prefix}yardım Müzik]()**
+  **[${prefix}yardım Moderasyon]()**
   **[${prefix}yardım Sunucu]()**
   **[${prefix}yardım Sahip]()**
   `)
-
+  .addField("» Linkler", ` [Davet Et](https://discord.com/oauth2/authorize?client_id=854824416424755282&scope=bot&permissions=8589934591)` , false)
 
   .setFooter('Bu komutu kullanan kullanıcı ' + message.author.tag, message.author.displayAvatarURL())
   message.channel.send(embed)
