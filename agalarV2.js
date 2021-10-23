@@ -417,27 +417,26 @@ client.on("message", message => {
     return;
 
   let EtkinlikKatılımcısı = new matthe.MessageButton()
-    .setStyle("red")
-    .setLabel("Etkinlik Katılımcısı")
-    .setID("EtkinlikKatılımcısı");
+    .setStyle("blurple")
+    .setLabel("Çekiliş")
+    .setID("Çekiliş");
 
   let ÇekilişKatılımcısı = new matthe.MessageButton()
-    .setStyle("green")
-    .setLabel("Çekiliş Katılımcısı")
-    .setID("ÇekilişKatılımcısı");
+    .setStyle("grey")
+    .setLabel("Atatürk")
+    .setID("Atatürk");
 
   message.channel.send(
     `
 Merhaba!
  
-Çekiliş Katılımcısı alarak **nitro, spotify, netflix ve benzeri çekilişlere katılıp ödül sahibi** olabilirsiniz.
+Çekiliş Katılımcısı alarak çekilişlere katılarak **ödül** sahibi olabilirsiniz.
 
-Aşağıda bulunan butonlardan **Etkinlik Katılımcısı alarak konserlerimizden, oyunlarımızdan, ve etkinliklerimizden** faydalanabilirsiniz.
+Atatürk severler için.
 
-\`NOT:\` Kayıtlı , kayıtsız olarak hepiniz bu kanalı görebilmektesiniz. Bu sunucumuzda everyone here atılmayacağından dolayı kesinlikle rollerinizi almayı unutmayın.
 `,
     {
-      buttons: [EtkinlikKatılımcısı, ÇekilişKatılımcısı]
+      buttons: [Çekiliş,Atatürk]
     }
   );
 });
