@@ -398,32 +398,6 @@ if(message.content.startsWith(prefix + "yardım müzik")){
       .setFooter(`Bu komut ${message.author.tag}tarafından yazılmıştır`)
 message.channel.send(embed_hhwid)
 }});
-disbut(client);
-client.on('message', async (message) => {
-    if (message.content.startsWith('!yardım')) {
-      let button = new disbut.MessageButton()
-      .setStyle('green') 
-      .setLabel('Buraya Tıkla')
-      .setID('Buraya Tıkla')
-      let embed = new Discord.MessageEmbed()
-      .addField(`ArdaDemr`,`Youtube`)
-      message.channel.send({
-        button: button,
-          embed: embed
-      })
-      client.ws.on('INTERACTION_CREATE', async interaction => {
-          
-          client.api.interactions(interaction.id, interaction.token).callback.post({
-              data: {
-                  type: 4,
-                  data: {
-                      content: "Deneme 1\nDeneme 2\nDeneme 3\nDeneme 4\nDeneme 5", // Yardım Menüsü Buraya Gelecek
-                      flags: "64" // Bunu Ellemeyin
-                    }
-                }
-            }) 
-       });
-    }
-});
+
 
 client.login(ayarlar.token);
