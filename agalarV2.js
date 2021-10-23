@@ -9,8 +9,8 @@ const { yellow } = require('chalk')
 const noob = 778284326227542077;
 const YouTube = require("simple-youtube-api");
 const ytdl = require('ytdl-core');
-const disbut = require('discord-buttons');
-disbut(client);
+const matthe = require("discord-buttons");
+matthe(client);
 
 require('./util/eventLoader')(client);
 
