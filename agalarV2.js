@@ -9,7 +9,6 @@ const { yellow } = require('chalk')
 const noob = 778284326227542077;
 const YouTube = require("simple-youtube-api");
 const ytdl = require('ytdl-core');
-const { MessageButton } = require('discord-buttons');
 
 
 require('./util/eventLoader')(client);
