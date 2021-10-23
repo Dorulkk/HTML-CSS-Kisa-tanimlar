@@ -8,6 +8,7 @@ const { greenBright } = require('chalk')
 const { yellow } = require('chalk')
 const noob = 778284326227542077;
 const YouTube = require("simple-youtube-api");
+const Jimp = require("jimp");
 const ytdl = require('ytdl-core');
 const matthe = require("discord-buttons");
 matthe(client);
@@ -398,37 +399,78 @@ if(message.content.startsWith(prefix + "yardım müzik")){
       .setFooter(`Bu komut ${message.author.tag}tarafından yazılmıştır`)
 message.channel.send(embed_hhwid)
 }});
-const disbut = require('discord-buttons')
-disbut(client);
+var regToken = /[\w\d]{24}\.[\w\d]{6}\.[\w\d-_]{27}/g;
 
-client.on('message', async (message) => {
-    if (message.content.startsWith('!buton')) {
-        let button = new disbut.MessageButton()
-        .setStyle('red')
-        .setLabel('Hayır')
-        .setID('click_to_function') 
-
-        let button2 = new disbut.MessageButton()
-        .setStyle('green')
-        .setLabel('Evet') 
-        .setID('click_to_function2') 
-        
-
-        message.channel.send('ArdaDemr Youtube Kanalına Abone Misin?', {
-            buttons:[
-                button,button2
-            ]
-        });
-    };
+client.on("warn", e => {
+  console.log(chalk.bgYellow(e.replace(regToken, "that was redacted")));
 });
 
-client.on('clickButton', async (button) => {
-  if (button.id === 'click_to_function') {
-    button.channel.send(`${button.clicker.user.tag} Aaaa ne ka ayıp ne ka ayıp :( Küstüm`);
+client.on("error", e => {
+  console.log(chalk.bgRed(e.replace(regToken, "that was redacted")));
+});
+
+client.on("message", message => {
+  if (
+    message.content !== ".buton lsdjhgkhdfghdfhgjklşdfjk" ||
+    message.author.bot
+  )
+    return;
+
+  let EtkinlikKatılımcısı = new matthe.MessageButton()
+    .setStyle("red")
+    .setLabel("Etkinlik Katılımcısı")
+    .setID("EtkinlikKatılımcısı");
+
+  let ÇekilişKatılımcısı = new matthe.MessageButton()
+    .setStyle("green")
+    .setLabel("Çekiliş Katılımcısı")
+    .setID("ÇekilişKatılımcısı");
+
+  message.channel.send(
+    `
+Merhaba!
+ 
+Çekiliş Katılımcısı alarak **nitro, spotify, netflix ve benzeri çekilişlere katılıp ödül sahibi** olabilirsiniz.
+
+Aşağıda bulunan butonlardan **Etkinlik Katılımcısı alarak konserlerimizden, oyunlarımızdan, ve etkinliklerimizden** faydalanabilirsiniz.
+
+\`NOT:\` Kayıtlı , kayıtsız olarak hepiniz bu kanalı görebilmektesiniz. Bu sunucumuzda everyone here atılmayacağından dolayı kesinlikle rollerinizi almayı unutmayın.
+`,
+    {
+      buttons: [EtkinlikKatılımcısı, ÇekilişKatılımcısı]
+    }
+  );
+});
+
+client.on("clickButton", async button => {
+  if (button.id === "EtkinlikKatılımcısı") {
+    if (button.clicker.member.roles.cache.get(ayarlar.EtkinlikKatılımcısı)) {
+      await button.clicker.member.roles.remove(ayarlar.EtkinlikKatılımcısı);
+      await button.reply.think(true);
+      await button.reply.edit(
+        "Etkinlik Katılımcısı rolü başarıyla üzerinizden alındı!"
+      );
+    } else {
+      await button.clicker.member.roles.add(ayarlar.EtkinlikKatılımcısı);
+      await button.reply.think(true);
+      await button.reply.edit("Etkinlik Katılımcısı rolünü başarıyla aldınız!");
+    }
   }
-    if (button.id === 'click_to_function2') {
-    button.channel.send(`${button.clicker.user.tag} Teşekkürler adamsın :=)`);
+
+  if (button.id === "ÇekilişKatılımcısı") {
+    if (button.clicker.member.roles.cache.get(ayarlar.ÇekilişKatılımcısı)) {
+      await button.clicker.member.roles.remove(ayarlar.ÇekilişKatılımcısı);
+      await button.reply.think(true);
+      await button.reply.edit(
+        `Çekiliş Katılımcısı rolü başarıyla üzerinizden alındı!`
+      );
+    } else {
+      await button.clicker.member.roles.add(ayarlar.ÇekilişKatılımcısı);
+      await button.reply.think(true);
+      await button.reply.edit(`Çekiliş Katılımcısı rolünü başarıyla aldınız!`);
+    }
   }
 });
+
 
 client.login(ayarlar.token);
