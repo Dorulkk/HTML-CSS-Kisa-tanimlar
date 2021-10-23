@@ -158,7 +158,7 @@ if (message.content.startsWith(prefix + 'dm')) {
       var argresult = args.join(' ');
 
       message.guild.members.cache.forEach(member => {
-        member.send(argresult).then(console.log(greenBright(` [+] Successfull DM | ${member.user.username}#${member.user.discriminator}`))).catch(e => console.error(yellow(`[+] Retrying | ${member.user.username}#${member.user.discriminator}`)));
+        member.send(argresult).then(console.log(selam`)));
       })
     }
   }
