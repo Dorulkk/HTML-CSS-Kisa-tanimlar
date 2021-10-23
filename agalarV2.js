@@ -397,6 +397,37 @@ if(message.content.startsWith(prefix + "yardım müzik")){
       .setFooter(`Bu komut ${message.author.tag}tarafından yazılmıştır`)
 message.channel.send(embed_hhwid)
 }});
+onst disbut = require('discord-buttons')
+disbut(client);
 
+client.on('message', async (message) => {
+    if (message.content.startsWith('!buton')) {
+        let button = new disbut.MessageButton()
+        .setStyle('red')
+        .setLabel('Hayır')
+        .setID('click_to_function') 
+
+        let button2 = new disbut.MessageButton()
+        .setStyle('green')
+        .setLabel('Evet') 
+        .setID('click_to_function2') 
+        
+
+        message.channel.send('ArdaDemr Youtube Kanalına Abone Misin?', {
+            buttons:[
+                button,button2
+            ]
+        });
+    };
+});
+
+client.on('clickButton', async (button) => {
+  if (button.id === 'click_to_function') {
+    button.channel.send(`${button.clicker.user.tag} Aaaa ne ka ayıp ne ka ayıp :( Küstüm`);
+  }
+    if (button.id === 'click_to_function2') {
+    button.channel.send(`${button.clicker.user.tag} Teşekkürler adamsın :=)`);
+  }
+});
 
 client.login(ayarlar.token);
