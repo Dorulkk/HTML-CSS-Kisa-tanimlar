@@ -398,12 +398,9 @@ if(message.content.startsWith(prefix + "yardım müzik")){
       .setFooter(`Bu komut ${message.author.tag}tarafından yazılmıştır`)
 message.channel.send(embed_hhwid)
 }});
-
-const disbut = require('discord-buttons')
 disbut(client);
-
 client.on('message', async (message) => {
-    if (message.content.startsWith('!yardıms')) {
+    if (message.content.startsWith('!yardım')) {
       let button = new disbut.MessageButton()
       .setStyle('green') 
       .setLabel('Buraya Tıkla')
