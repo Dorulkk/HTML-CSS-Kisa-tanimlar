@@ -9,10 +9,11 @@ const { yellow } = require('chalk')
 const noob = 778284326227542077;
 const YouTube = require("simple-youtube-api");
 const ytdl = require('ytdl-core');
-
+const disbut = require('discord-buttons');
+disbut(client);
 
 require('./util/eventLoader')(client);
-require('discord-buttons')(client);
+
 
 var prefix = ayarlar.prefix;
 
