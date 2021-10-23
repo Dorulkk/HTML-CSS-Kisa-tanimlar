@@ -397,7 +397,7 @@ if(message.content.startsWith(prefix + "yardım müzik")){
       .setFooter(`Bu komut ${message.author.tag}tarafından yazılmıştır`)
 message.channel.send(embed_hhwid)
 }});
-onst disbut = require('discord-buttons')
+const disbut = require('discord-buttons')
 disbut(client);
 
 client.on('message', async (message) => {
