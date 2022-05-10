@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>attribute selectors</title>
+    <style>
+    
+        a[target]{
+            
+            border:1px solid red;
+        }
+    
+    a[target="_blank"]{
+            
+            color: aqua
+        }
+        a[href^="https"]{
+            
+            background-color: green;
+        }
+                a[href$="net"]{
+            
+            background-color: yellow;
+        }
+    
+        a[title*="do"]{
+            text-decoration: none;
+            box-shadow:1px 1px 3px black;
+        }
+        
+        a[class|="yeni"]{
+            
+            padding:10px
+        }
+    
+        p[title~="bahar"]{
+            color: orange  
+        }
+        
+        input[type="submit"]
+        {
+            border:3px solid purple;
+            
+        }
+        
+                input[type="text"]
+        {
+            border:3px solid green;
+            
+        }
+        
+        
+        
+        
+        
+        
+    </style>
+</head>
+<body>
+   
+    <a href="https//www.google.com" target="_blank" title="sayfa yeni dosya"
+    class="yeni-dosya">tıkla 1</a>
+    <br><br>
+    <a href="http//www.youtube.com" target="_parent" title="sayfa döküman" class="yenidosya">tıkla 2</a>
+    <br><br>
+    <a href="http//www.youtube.net" title="başka sayfa doldurma" class="yeni">tıkla 3</a>
+     <br><br>
+    <p title="yeni bahar">içerik 1</p>
+    <p title="bahar">içerik 2</p>
+    <p title="çiçek">içerik 3</p>
+    <br><br><br>
+    
+    <input type="text">
+    <input type="submit">
+    
+</body>
+</html>

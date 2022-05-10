@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>pseudo slectes</title>
+<style>
+    
+    
+    /* pseudo elements */
+    
+    p::first-letter{
+        font-size:30px;
+        color: green;
+    }
+    p.yazi2::first-letter{
+        color:purple;
+    }
+    p::first-line{
+     color:orange;   
+    }
+    p::after{
+        content:"Ben yeni bir elemanım";
+        display:block;
+        background-color: yellow;
+    }
+        p::before{
+        content:"Ben yeni bir elemanım";
+        display:block;
+        background-color: yellow;
+    }
+    
+    
+    
+    /* pseudo class */
+    
+    /*ul li:first-child{
+    background-color: orange;
+    }
+    ul li:last-child{
+    background-color: orange;
+    }*/
+    
+    ul li:nth-child(3){
+    color: aqua;
+    }
+    ul li:nth-child(odd){
+    border:2px solid black;
+    }
+     ul li:nth-child(even){
+    border:2px solid blue;
+    }
+    a:link{
+        color: red;
+        text-decoration: none;
+    }
+    a:hover{
+        color:lightseagreen;
+    }
+
+     a:active{
+        color:orange;
+    }
+     a:visited{
+        color:darkred;
+    }
+    </style>
+</head>
+<body>
+   
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta reiciendis pariatur nisi iure, cum perferendis minus numquam ipsum dolorem sapiente autem. Quos provident iste, nulla quod earum tempora quisquam ex!</p>
+   <p class="yazi2">Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem, molestiae!</p>
+   
+   <ul>
+       <li>elma</li>
+       <li>armut</li>
+       <li>üzüm</li>
+       <li>şeftali</li>
+       <li>kayısı</li>
+   </ul>
+    
+    <a href="#">GÖNDER</a>
+</body>
+</html>
